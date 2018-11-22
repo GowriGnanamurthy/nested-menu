@@ -1,0 +1,28 @@
+<ul>
+  <li *ngFor="let item of nestItems; let i = index">
+    <button (click)="toggle[i] = !toggle[i]">{{ item.title }} - {{ i }}</button>
+    <div *ngIf="item.children && toggle[i]">
+      <ng-container
+        *ngTemplateOutlet="tree; context: { $implicit: item.children, idx: i }"
+      ></ng-container>
+    </div>
+  </li>
+</ul>
+
+<ng-template #tree let-allItems let-idx="idx">
+  <ul>
+    <li *ngFor="let item of allItems; let n = index">
+      <button (click)="toggle[idx + '.' + n] = !toggle[idx + '.' + n]">
+        {{ item.title }} - {{ idx + '.' + n }}
+      </button>
+      <div *ngIf="item.children && toggle[idx + '.' + n]">
+        <ng-container
+          *ngTemplateOutlet="
+            tree;
+            context: { $implicit: item.children, idx: idx + '.' + n }
+          "
+        ></ng-container>
+      </div>
+    </li>
+  </ul>
+</ng-template>
