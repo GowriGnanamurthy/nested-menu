@@ -1,3 +1,17 @@
+<div class="col-md-12" *ngFor="let person of persons">
+  <div class="col-md-4">
+    <div>{{ person.name }}</div>
+  </div>
+  <div class="col-md-8" *ngFor="let home of person.homes">
+    <div class="col-md-4 ">
+      <div>{{ home.location }} - {{ home.size }}</div>
+    </div>
+    <div class="col-md-4">
+      <div *ngFor="let e of home.furniture">{{ e.name }}</div>
+    </div>
+  </div>
+</div>
+
 <ul>
   <li *ngFor="let item of nestItems; let i = index">
     <button (click)="toggle[i] = !toggle[i]">{{ item.title }} - {{ i }}</button>

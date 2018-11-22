@@ -119,6 +119,46 @@ export class AppComponent {
     }
   ];
 
+  persons: any = [
+    {
+      name: 'Mandy',
+      homes: [
+        {
+          location: 'California',
+          size: 'medium',
+          furniture: [
+            {
+              name: 'couch',
+              color: 'white'
+            },
+            {
+              name: 'table',
+              color: 'black'
+            }
+          ]
+        }
+      ]
+    },
+    {
+      name: 'D',
+      homes: [
+        {
+          location: 'California',
+          size: 'medium',
+          furniture: [
+            {
+              name: 'couch',
+              color: 'white'
+            },
+            {
+              name: 'table',
+              color: 'black'
+            }
+          ]
+        }
+      ]
+    }
+  ];
   constructor() {
     this.toggle = this.nestItems.map(i => false);
   }
